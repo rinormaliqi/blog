@@ -164,7 +164,7 @@ export default async function PostPage(props: PostPageProps) {
           {/* Main Content */}
           <article className="lg:col-span-3">
             {/* Article Header */}
-            <header className="mb-8 text-center">
+            <header className="mb-8 text-center bg-white">
               <div className="flex justify-center mb-6">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm px-4 py-2 rounded-full font-medium">
                   {post.category}
