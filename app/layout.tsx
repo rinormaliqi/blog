@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   publisher: "Pikëmbipresje",
   metadataBase: new URL("https://blog.pikembipresje.com"),
   openGraph: {
-    title: "Pikëmbipresje Blog | Ide, Opinione dhe Historia Moderne",
+    title: "Pikëmbipresje Blog | Analiza, Opinione dhe Lajme te Perditshme",
     description:
       "Lexo artikuj të zgjedhur nga fusha të ndryshme ne teknologji, shoqëri, art dhe më shumë në Pikëmbipresje.",
     url: "https://blog.pikembipresje.com",
@@ -60,9 +60,11 @@ export const metadata: Metadata = {
     images: ["https://blog.pikembipresje.com/og-image.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
   alternates: {
     canonical: "https://blog.pikembipresje.com",
@@ -79,6 +81,9 @@ export default function RootLayout({
     <html lang="sq">
       <head>
         <meta name="theme-color" content="#0f172a" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
