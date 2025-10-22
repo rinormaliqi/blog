@@ -1,6 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { 
+  RiShareForwardLine, 
+  RiFacebookFill, 
+  RiTwitterXFill, 
+  RiLinkedinFill,
+  RiLinksLine,
+  RiCheckLine
+} from 'react-icons/ri'
 
 interface SocialShareButtonsProps {
   title: string
@@ -53,19 +61,32 @@ export default function SocialShareButtons({ title, excerpt, slug }: SocialShare
   }
 
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center space-x-2">
       {/* Share Button */}
       <button
         onClick={handleShare}
-        className="w-10 h-10 bg-gray-100 hover:bg-blue-100 rounded-full flex items-center justify-center transition-colors duration-200 relative"
+        className="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-200 relative group"
         title="Shpërndaj"
       >
-        <span className="text-lg">📤</span>
+        {copied ? (
+          <RiCheckLine className="text-green-600 text-lg" />
+        ) : (
+          <RiShareForwardLine className="text-gray-700 text-lg group-hover:text-gray-900" />
+        )}
         {copied && (
-          <span className="absolute -top-8 bg-gray-800 text-white text-xs px-2 py-1 rounded-md whitespace-nowrap">
+          <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md whitespace-nowrap">
             U kopjua!
           </span>
         )}
+      </button>
+
+      {/* Copy Link Button */}
+      <button
+        onClick={handleShare}
+        className="w-9 h-9 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-200 group"
+        title="Kopjo linkun"
+      >
+        <RiLinksLine className="text-gray-700 text-lg group-hover:text-gray-900" />
       </button>
 
       {/* Facebook */}
@@ -73,21 +94,21 @@ export default function SocialShareButtons({ title, excerpt, slug }: SocialShare
         href={socialLinks.facebook}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-10 h-10 bg-gray-100 hover:bg-blue-100 rounded-full flex items-center justify-center transition-colors duration-200"
+        className="w-9 h-9 bg-gray-100 hover:bg-blue-50 rounded-full flex items-center justify-center transition-all duration-200 group"
         title="Shpërndaj në Facebook"
       >
-        <span className="text-lg">📘</span>
+        <RiFacebookFill className="text-gray-700 text-lg group-hover:text-blue-600" />
       </a>
 
-      {/* Twitter */}
+      {/* Twitter/X */}
       <a
         href={socialLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-10 h-10 bg-gray-100 hover:bg-blue-100 rounded-full flex items-center justify-center transition-colors duration-200"
+        className="w-9 h-9 bg-gray-100 hover:bg-gray-50 rounded-full flex items-center justify-center transition-all duration-200 group"
         title="Shpërndaj në Twitter"
       >
-        <span className="text-lg">🐦</span>
+        <RiTwitterXFill className="text-gray-700 text-lg group-hover:text-gray-900" />
       </a>
 
       {/* LinkedIn */}
@@ -95,10 +116,10 @@ export default function SocialShareButtons({ title, excerpt, slug }: SocialShare
         href={socialLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="w-10 h-10 bg-gray-100 hover:bg-blue-100 rounded-full flex items-center justify-center transition-colors duration-200"
+        className="w-9 h-9 bg-gray-100 hover:bg-blue-50 rounded-full flex items-center justify-center transition-all duration-200 group"
         title="Shpërndaj në LinkedIn"
       >
-        <span className="text-lg">💼</span>
+        <RiLinkedinFill className="text-gray-700 text-lg group-hover:text-blue-700" />
       </a>
     </div>
   )
